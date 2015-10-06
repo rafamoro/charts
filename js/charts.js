@@ -1,5 +1,5 @@
 
-
+var toggled = true;
 var chart = c3.generate({
     color: {
         pattern: ['#5ca648', '#A8DADC', '#C8E9A0', '#F7A278', '#413C58', '#FF7E6B', '#F9DF99', '#D6D1B1', '#B8F2E6']
@@ -15,14 +15,13 @@ var chart = c3.generate({
             "total tickets":[ 30, 200, 100, 400, 150, 250, 350]
         },
         onclick: function (d, i) {
-            console.log("onclick", d, i);
-            if(d.name == "adult ticket" || d.name == "children ticket") {
-                chart.show('total tickets');
-                chart.hide(["adult ticket","children ticket"]);
-            } else if (d.name == "total tickets") {
-                chart.hide('total tickets');
-                chart.show(["adult ticket","children ticket"]);
+            console.log("onclick", d.id);
+            if (toggled) {
+                chart.toggle("children ticket");
+                chart.toggle("adult ticket");
+                chart.toggle("total tickets");
             }
+            toggled = !toggled;
         },
         hide: ["total tickets"],
         mimeType: 'json',
