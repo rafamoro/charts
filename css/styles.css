@@ -1,0 +1,17 @@
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+#chart {
+  height: 400px;
+  margin: 0px auto;
+}
+
+#uv-div {
+  width: 100%;
+  margin: 0px auto;
+}
+
+.c3-line, .c3-target.c3-focused path.c3-line {
+  stroke-width: 8px;
+}
